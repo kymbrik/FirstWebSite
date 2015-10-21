@@ -1,0 +1,31 @@
+create table topics ( 
+id_topic int (10) AUTO_INCREMENT,
+topic_name varchar(255) NOT NULL,
+PRIMARY KEY (id_topic)); 
+
+
+create table images( 
+id_image int (10) AUTO_INCREMENT,
+path_image varchar(255) NOT NULL,
+id_topic int (10) NOT NULL,
+PRIMARY KEY (id_image), 
+FOREIGN KEY (id_topic) REFERENCES topics (id_topic) ); 
+
+INSERT INTO topics (topic_name) VALUES 
+('Заголовок изображения 1'),
+('Заголовок изображения 2'),
+('Заголовок изображения 3'),
+('Заголовок изображения 4'),
+('Заголовок изображения 5'),
+('Заголовок изображения 6'),
+('Заголовок изображения 7'); 
+
+INSERT INTO images(path_image, id_topic) VALUES 
+('img/img1.jpg','1'),
+('img/img2.jpg','2'),
+('img/img3.jpg','3'),
+('img/img4.jpg','4'),
+('img/img5.jpg','5'),
+('img/img6.jpg','6'),
+('img/img7.jpg','7'); 
+

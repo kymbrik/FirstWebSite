@@ -1,0 +1,1 @@
+<div id="footer">Copyright © Кирилл Ермаков, <? echo date('Y'); ?></div>
