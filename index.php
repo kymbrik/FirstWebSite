@@ -1,12 +1,14 @@
 <?php
-	header('Content-Type: text/html; charset=utf-8');
- require 'menu.php';?>
+header('Content-Type: text/html; charset=utf-8');
+require 'config.php';
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 	<title>My First Site</title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<link rel="stylesheet" href="css/gallery.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -31,21 +33,21 @@
 // Check page
 			switch ($current_page) {
 				case '1':
-				include 'main.php';
-				break;
+					getMainContent($myConnect);
+					break;
 				case '2':
-				include 'about.php';
-				break;
+					getAboutMe($myConnect);
+					break;
 				case '3':
-				include 'gallery.php';
-				break;
+					getGallery($myConnect);
+					break;
 				default:
-				include 'main.php';
+					getMainContent($myConnect);
 			}
 
 			?>
 		</div>
 	</div>
-	<?php include 'footer.php';?>
+	<?php getFooter(); ?>
 </body>
 </html>

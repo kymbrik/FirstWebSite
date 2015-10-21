@@ -1,0 +1,9 @@
+.imgContainer{
+	float: left;
+	margin-left: 10px;
+	margin-bottom: 20px;
+}
+
+.clear {
+	clear: both;
+}
