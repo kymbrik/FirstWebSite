@@ -1,4 +1,9 @@
 <?php
+$id=$_GET['id'];
+if(!isset($id))
+{
+	header("Refresh:0; url=http://localhost/FirstWebSite/index.php?id=1");
+}
 header('Content-Type: text/html; charset=utf-8');
 require 'config.php';
 ?>
@@ -16,7 +21,7 @@ require 'config.php';
 	<header class="mainHeader">
 		<img src="img/headerLogo.png">
 		<nav>
-			<?php getMenu($menu);?>
+			<?php getMenu($myConnect);?>
 		</nav>
 	</header>
 	<div class="mainContent">
@@ -40,6 +45,9 @@ require 'config.php';
 					break;
 				case '3':
 					getGallery($myConnect);
+					break;
+				case '4':
+					getContacts($myConnect);
 					break;
 				default:
 					getMainContent($myConnect);
