@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Окт 21 2015 г., 23:22
+-- Время создания: Окт 24 2015 г., 00:51
 -- Версия сервера: 5.1.51-community
 -- Версия PHP: 5.3.13
 
@@ -23,64 +23,38 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `images`
+-- Структура таблицы `photos`
 --
 
-CREATE TABLE IF NOT EXISTS `images` (
-  `id_image` int(10) NOT NULL AUTO_INCREMENT,
-  `path_image` varchar(255) NOT NULL,
-  `id_topic` int(10) NOT NULL,
-  PRIMARY KEY (`id_image`),
-  KEY `id_topic` (`id_topic`)
-) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=8 ;
-
---
--- Дамп данных таблицы `images`
---
-
-INSERT INTO `images` (`id_image`, `path_image`, `id_topic`) VALUES
-(1, 'img/img1.jpg', 1),
-(2, 'img/img2.jpg', 2),
-(3, 'img/img3.jpg', 3),
-(4, 'img/img4.jpg', 4),
-(5, 'img/img5.jpg', 5),
-(6, 'img/img6.jpg', 6),
-(7, 'img/img7.jpg', 7);
+CREATE TABLE IF NOT EXISTS `photos` (
+  `id_photo` int(10) NOT NULL AUTO_INCREMENT,
+  `path_photo` varchar(255) NOT NULL,
+  `photo_title` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_photo`)
+) ENGINE=InnoDB DEFAULT CHARSET=cp1251 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `topics`
+-- Структура таблицы `texts`
 --
 
-CREATE TABLE IF NOT EXISTS `topics` (
-  `id_topic` int(10) NOT NULL AUTO_INCREMENT,
-  `topic_name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_topic`)
-) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=8 ;
+CREATE TABLE IF NOT EXISTS `texts` (
+  `id_text` int(10) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `content` text,
+  PRIMARY KEY (`id_text`)
+) ENGINE=InnoDB  DEFAULT CHARSET=cp1251 AUTO_INCREMENT=5 ;
 
 --
--- Дамп данных таблицы `topics`
+-- Дамп данных таблицы `texts`
 --
 
-INSERT INTO `topics` (`id_topic`, `topic_name`) VALUES
-(1, 'Заголовок изображения 1'),
-(2, 'Заголовок изображения 2'),
-(3, 'Заголовок изображения 3'),
-(4, 'Заголовок изображения 4'),
-(5, 'Заголовок изображения 5'),
-(6, 'Заголовок изображения 6'),
-(7, 'Заголовок изображения 7');
-
---
--- Ограничения внешнего ключа сохраненных таблиц
---
-
---
--- Ограничения внешнего ключа таблицы `images`
---
-ALTER TABLE `images`
-  ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`id_topic`) REFERENCES `topics` (`id_topic`);
+INSERT INTO `texts` (`id_text`, `title`, `content`) VALUES
+(1, 'Главная', 'Содержимое главной страницы'),
+(2, 'Обо мне', 'Содержимое страницы Обо мне'),
+(3, 'Фотогалерея', 'Содержимое страницы Фотогалерея'),
+(4, 'Контакты', '+ 79254466612');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,61 +1,49 @@
 <?php
-$id=$_GET['id'];
-if(!isset($id))
+require("config.php");
+
+if(!isset($_GET['id']))
 {
-	header("Refresh:0; url=http://localhost/FirstWebSite/index.php?id=1");
+	$id=1;
+} else {
+	$id=$_GET['id'];
 }
-header('Content-Type: text/html; charset=utf-8');
-require 'config.php';
 ?>
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html>
 <head>
-	<title>My First Site</title>
-	<meta charset="utf-8" />
+	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/style.css" type="text/css" />
-	<link rel="stylesheet" href="css/gallery.css" type="text/css" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Кирилл</title>
 </head>
 
 <body class="body">
 	<header class="mainHeader">
 		<img src="img/headerLogo.png">
 		<nav>
-			<?php getMenu($myConnect);?>
-		</nav>
-	</header>
-	<div class="mainContent">
-		<div class="content">
-			<?php
-	// Set default valuea
-			$current_page = '1';
-
-// Change value if `page` is specified
-			if(array_key_exists('id',$_GET)) {
-				$current_page = $_GET['id'];
-			}
-
-// Check page
-			switch ($current_page) {
-				case '1':
-					getMainContent($myConnect);
-					break;
-				case '2':
-					getAboutMe($myConnect);
-					break;
-				case '3':
-					getGallery($myConnect);
-					break;
-				case '4':
-					getContacts($myConnect);
-					break;
-				default:
-					getMainContent($myConnect);
-			}
-
+	<ul>
+		<?
+//меню
+		$qmenu = mysql_query("select `id_text`,`title` from texts where `id_text`<=4 order by `id_text` asc");
+		while($menu = mysql_fetch_row($qmenu)) {
 			?>
-		</div>
-	</div>
-	<?php getFooter(); ?>
+			<li><a href="<?=$url?>?id=<?=$menu[0]?>"><?=$menu[1]?></a></li>
+			<?
+		}
+		?>
+	</ul>
+	</nav>
+	<?
+// текст
+	$qtext = mysql_query("select `title`,`content` from texts where `id_text`=".$id);
+	if ($text = mysql_fetch_array($qtext)) {
+		?>
+		<h1><?=$text["title"]?></h1>
+		<?=$text["content"]?>
+		<?
+	}
+
+// подвал
+	echo "<br><br><hr>".date("Y")." Кирилл";
+	?>
 </body>
 </html>

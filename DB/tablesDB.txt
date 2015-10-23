@@ -4,37 +4,17 @@ title varchar(255) NOT NULL,
 content text,
 PRIMARY KEY (id_text)); 
 
-
-create table images( 
-id_image int (10) AUTO_INCREMENT,
-path_image varchar(255) NOT NULL,
-id_text int (10) NOT NULL,
-PRIMARY KEY (id_image), 
-FOREIGN KEY (id_text) REFERENCES texts (id_text) ); 
-
-
+create table photos( 
+id_photo int (10) AUTO_INCREMENT,
+path_photo varchar(255) NOT NULL,
+photo_title varchar(255),
+PRIMARY KEY (id_photo),  ); 
 
 INSERT INTO texts (title, content) VALUES 
 ('Главная','Содержимое главной страницы'),
 ('Обо мне','Содержимое страницы Обо мне'),
-('Фотогалерея',''),
+('Фотогалерея','Содержимое страницы Фотогалерея'),
 ('Контакты','+ 79254466612'); 
 
-INSERT INTO texts (title) VALUES 
-('Заголовок изображения 1'),
-('Заголовок изображения 2'),
-('Заголовок изображения 3'),
-('Заголовок изображения 4'),
-('Заголовок изображения 5'),
-('Заголовок изображения 6'),
-('Заголовок изображения 7'); 
 
-INSERT INTO images(path_image, id_text) VALUES 
-('img/img1.jpg','5'),
-('img/img2.jpg','6'),
-('img/img3.jpg','7'),
-('img/img4.jpg','8'),
-('img/img5.jpg','9'),
-('img/img6.jpg','10'),
-('img/img7.jpg','11'); 
 
