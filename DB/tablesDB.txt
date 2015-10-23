@@ -8,7 +8,13 @@ create table photos(
 id_photo int (10) AUTO_INCREMENT,
 path_photo varchar(255) NOT NULL,
 photo_title varchar(255),
-PRIMARY KEY (id_photo),  ); 
+PRIMARY KEY (id_photo)); 
+
+create table users( 
+id_user int (10) AUTO_INCREMENT,
+username varchar(255) NOT NULL,
+password varchar(255) NOT NULL,
+PRIMARY KEY (id_user));
 
 INSERT INTO texts (title, content) VALUES 
 ('Главная','Содержимое главной страницы'),
