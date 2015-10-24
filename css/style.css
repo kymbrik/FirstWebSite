@@ -7,54 +7,75 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	}
-	
+}
+
 .body {
 	clear: both; 
 	margin: 0 auto; 
 	width: 70%;
 	height: 100%;
 }
+img{
+	width: 100px;
+	height: 100px;
+}
 
 /* ===========================
    ===== Main Navigation ===== 
    =========================== */
+
+   .mainHeader nav {
+   	background: #666;
+   	font-size: 1.143em;
+   	height: 40px;
+   	line-height: 30px;
+   	margin: 0 auto 30px auto;
+   	text-align: center;
+   }
+
+   .mainHeader nav ul {
+   	list-style: none; 
+   	margin: 0 auto;
+   }
+
+   .mainHeader nav ul li {
+   	float: left; 
+   	display: inline; 
+   }
+
+   .mainHeader nav a:link, .mainHeader nav a:visited {
+   	color: #fff;
+   	display: inline-block;
+   	height: 30px;
+   	padding: 5px 23px;
+   	text-decoration: none;
+   }
+   .mainHeader nav a:hover, .mainHeader nav a:active,
+   .mainHeader nav .active a:link, .mainHeader nav .active a:visited {
+   	background: #CF5C3F;
+   	color: #fff;
+   }
+
+   .mainHeader img {
+   	width: 30%;
+   	height: auto;
+   	margin: 3% 0;
+   }
+
+   .imgContainer{
+
+   	width: 150px;
+   	height: 150px;
+   	float: left;
+   	margin-left: 2px;
+
    
-.mainHeader nav {
-	background: #666;
-	font-size: 1.143em;
-	height: 40px;
-	line-height: 30px;
-	margin: 0 auto 30px auto;
-	text-align: center;
-}
-	
-.mainHeader nav ul {
-	list-style: none; 
-	margin: 0 auto;
-}
 
-.mainHeader nav ul li {
-	float: left; 
-	display: inline; 
-}
-	
-.mainHeader nav a:link, .mainHeader nav a:visited {
-	color: #fff;
-	display: inline-block;
-	height: 30px;
-	padding: 5px 23px;
-	text-decoration: none;
-}
-.mainHeader nav a:hover, .mainHeader nav a:active,
-.mainHeader nav .active a:link, .mainHeader nav .active a:visited {
-	background: #CF5C3F;
-	color: #fff;
-}
-
-.mainHeader img {
-	width: 30%;
-	height: auto;
-	margin: 3% 0;
-}
-
+   }
+   .imgContainer img{
+   	width: 150px;
+   	height: 150px;
+   }
+   .clear {
+   	clear: both;
+   }

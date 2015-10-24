@@ -11,12 +11,3 @@ mysql_query("SET NAMES utf8");
 
 //URL без параметров
 $url=strtok($_SERVER["REQUEST_URI"],'?');
-
-
-
-
-
-
-
-
-

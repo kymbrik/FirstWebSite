@@ -6,9 +6,11 @@ PRIMARY KEY (id_text));
 
 create table photos( 
 id_photo int (10) AUTO_INCREMENT,
+id_text int (10) NOT NULL,
 path_photo varchar(255) NOT NULL,
 photo_title varchar(255),
-PRIMARY KEY (id_photo)); 
+PRIMARY KEY (id_photo),
+FOREIGN KEY (id_text) REFERENCES texts (id_text)); 
 
 create table users( 
 id_user int (10) AUTO_INCREMENT,
@@ -21,6 +23,17 @@ INSERT INTO texts (title, content) VALUES
 ('Обо мне','Содержимое страницы Обо мне'),
 ('Фотогалерея','Содержимое страницы Фотогалерея'),
 ('Контакты','+ 79254466612'); 
+
+
+
+INSERT INTO photos(path_photo,id_text) VALUES 
+('img/img1.jpg','3'),
+('img/img2.jpg','3'),
+('img/img3.jpg','3'),
+('img/img4.jpg','3'),
+('img/img5.jpg','3'),
+('img/img6.jpg','3'),
+('img/img7.jpg','3'); 
 
 
 

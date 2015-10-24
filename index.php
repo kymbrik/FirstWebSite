@@ -39,11 +39,29 @@ if(!isset($_GET['id']))
 		?>
 		<h1><?=$text["title"]?></h1>
 		<?=$text["content"]?>
+		<div class="clear"></div>
 		<?
 	}
+
+
+// Фотогаллерея
+	$qgallery = mysql_query("select `path_photo`,`id_text` from photos where `id_text`=".$id);
+	while ($gallery = mysql_fetch_array($qgallery)) {
+		?>
+			<div class="imgContainer">
+				
+				<img class="img" width="150" height="150" src="<?=$gallery['path_photo']?>" >
+
+			</div>
+			
+
+		<?
+	}
+	echo '<div class="clear"></div>';
 
 // подвал
 	echo "<br><br><hr>".date("Y")." Кирилл";
 	?>
+
 </body>
 </html>
